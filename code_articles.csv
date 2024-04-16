@@ -1,0 +1,31 @@
+import numpy as np
+import pandas as np
+import matplotlib.pyplot as plt
+from PIL import Image
+from wordcloud import wordcloud, STOPWORDS, ImageColorGenerator
+
+df=pd.read_csv("./data/news_articles.csv")
+df.head()
+df.isnull().sum()
+df=df.dropna()
+
+text=(''.join(df['text_without_stopwords']))
+wordcloud = WordCloud().generate(text)
+
+plt.figure(figsize=[5,5])
+plt.imshow(wordcloud, interpolation="bilinear")
+
+wordcloud = WordCloud(max_font_size=50, max_word=10, background_color="white").generate(text)
+
+plt.figure(figsize=[8,8])
+plt.imshow(wordcloud,interpolation="bilinear")
+plt.show()
+
+stopword = set(STOPWORDS)
+wordcloud = WordCloud(with = 3000,heigh = 2000, random_stage=1, backgroud_color='black',colormap='Set2',callocal)
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.show()
+
+stopword = set(STOPWORDS)
+mask = np.array
